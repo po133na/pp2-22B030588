@@ -1,9 +1,8 @@
 class Strings:
-    def __init__(self):
-        self.str = ""
-
-    def get_string(self):
-        self.str = input()
-
-    def print_string(self):
-        print(self.str.upper())
+    def __init__(self, getString):
+        self.getString = getString
+    def printString(self):
+        return self.getString.upper()
+        
+s = Strings(input())
+print(s.printString())
