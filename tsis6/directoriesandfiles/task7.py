@@ -9,6 +9,6 @@ txt = input()
 path2 = input()
 txt2 = input()
 
-with open(txt,'r') as input, open(path2 + "\\" + txt2,'a') as output:
+with open(txt,'r') as input, open(path2 + txt2,'a') as output:
     for line in input:
         output.write(line)
