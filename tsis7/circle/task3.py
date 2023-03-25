@@ -3,7 +3,7 @@
 #the ball should move by 20 pixels in the direction of pressed key. 
 #The ball should not leave the screen, i.e. 
 #user input that leads the ball to leave of the screen should be ignored
-
+import sys
 import pygame
 
 pygame.init()
@@ -34,3 +34,4 @@ while not cond:
     
     pygame.display.flip()
 pygame.quit()
+sys.quit()
