@@ -15,6 +15,8 @@ blue = pygame.Color(0, 0, 255)
 pygame.init()
 pygame.display.set_caption('super snake!!!!!')
 game_window = pygame.display.set_mode((WIDTH, HEIGHT))
+background = pygame.mixer.music.load('cataclysm.mp3')
+background = pygame.mixer.music.play(-1)
 #FPS controller
 fps = pygame.time.Clock()
 #snake default pos
