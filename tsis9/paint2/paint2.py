@@ -6,8 +6,8 @@ def main():
     clock = pygame.time.Clock()
     
     radius = 15
-    x = 0
-    y = 0
+    x = 2
+    y = 2
     mode = 'blue'
     points = []
     painting_mode = 'circle'
@@ -46,9 +46,9 @@ def main():
                 elif event.key == pygame.K_e:
                     painting_mode = 'eraser'
                 elif event.key == pygame.K_1:
-                    painting_mode = 'equilateral_triangle'
+                    painting_mode = 'equilateral triangle'
                 elif event.key == pygame.K_2:
-                    painting_mode = 'right_triangle'
+                    painting_mode = 'right triangle'
                 elif event.key == pygame.K_3:
                     painting_mode = 'rhombus'
 
@@ -87,23 +87,25 @@ def drawLineBetween(screen, index, start, end, width, color_mode, painting_mode)
         color = (c2, c1, c1)
     elif color_mode == 'green':
         color = (c1, c2, c1)
-    
+    #differences between the x and y coords of the start&end points of the line
+    #setting number of iterations to the max of diffs
+    #determining the number of time the func will loop to draw
     dx = start[0] - end[0]
     dy = start[1] - end[1]
     iterations = max(abs(dx), abs(dy))
     
     for i in range(iterations):
-        progress = 1.0 * i / iterations
-        aprogress = 1 - progress
+        progress = 1.0 * i / iterations #length of a line for iter of cycle
+        aprogress = 1 - progress #line from end to start
         x = int(aprogress * start[0] + progress * end[0])
         y = int(aprogress * start[1] + progress * end[1])
         if painting_mode == 'circle':
             pygame.draw.circle(screen, color, (x, y), width)
         if painting_mode == 'rect':
             pygame.draw.rect(screen, color, (x, y, width + 30, width + 30))
-        if painting_mode == 'equilateral_triangle':
+        if painting_mode == 'equilateral triangle':
             pygame.draw.polygon(screen, color, ((x - width, y), (x, y - width), (x+ width, y)))
-        if painting_mode == 'right_triangle':
+        if painting_mode == 'right triangle':
             pygame.draw.polygon(screen, color, ((x - 0.5 * width, y), (x, y - width), (x+ 0.5 *width, y)))
         if painting_mode == 'rhombus':
             pygame.draw.polygon(screen, color, ((x - width, y), (x, y - width), (x+ width, y), (x, y + width)))            
